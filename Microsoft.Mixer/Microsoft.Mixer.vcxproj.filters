@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>f639dcd5-7d14-4d9a-9bf6-13c185372019</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Interactive.cpp" />
+    <ClCompile Include="InputEventArgs.cpp" />
+    <ClCompile Include="LaunchEventArgs.cpp" />
+    <ClCompile Include="MoveEventArgs.cpp" />
+    <ClCompile Include="ErrorEventArgs.cpp" />
+    <ClCompile Include="StateChangedEventArgs.cpp" />
+    <ClCompile Include="CustomEventArgs.cpp" />
+    <ClCompile Include="Group.cpp" />
+    <ClCompile Include="Conversion.cpp" />
+    <ClCompile Include="Control.cpp" />
+    <ClCompile Include="ControlProperty.cpp" />
+    <ClCompile Include="..\..\interactive-cpp\source\interactivity.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Interactive.h" />
+    <ClInclude Include="InputEventArgs.h" />
+    <ClInclude Include="LaunchEventArgs.h" />
+    <ClInclude Include="MoveEventArgs.h" />
+    <ClInclude Include="ErrorEventArgs.h" />
+    <ClInclude Include="StateChangedEventArgs.h" />
+    <ClInclude Include="CustomEventArgs.h" />
+    <ClInclude Include="Group.h" />
+    <ClInclude Include="Conversion.h" />
+    <ClInclude Include="Control.h" />
+    <ClInclude Include="ControlProperty.h" />
+  </ItemGroup>
+</Project>
