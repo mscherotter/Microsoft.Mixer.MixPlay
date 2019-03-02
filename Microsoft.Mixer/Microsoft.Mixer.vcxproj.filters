@@ -5,34 +5,92 @@
       <UniqueIdentifier>f639dcd5-7d14-4d9a-9bf6-13c185372019</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{3b0fadf8-8588-4fb8-aadf-75e017123d6a}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{5504f9a6-ed5e-4de5-8cc7-f1a950878205}</UniqueIdentifier>
+      <Extensions>cpp</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp" />
-    <ClCompile Include="Interactive.cpp" />
-    <ClCompile Include="InputEventArgs.cpp" />
-    <ClCompile Include="LaunchEventArgs.cpp" />
-    <ClCompile Include="MoveEventArgs.cpp" />
-    <ClCompile Include="ErrorEventArgs.cpp" />
-    <ClCompile Include="StateChangedEventArgs.cpp" />
-    <ClCompile Include="CustomEventArgs.cpp" />
-    <ClCompile Include="Group.cpp" />
-    <ClCompile Include="Conversion.cpp" />
-    <ClCompile Include="Control.cpp" />
-    <ClCompile Include="ControlProperty.cpp" />
-    <ClCompile Include="..\..\interactive-cpp\source\interactivity.cpp" />
+    <ClCompile Include="Control.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlProperty.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomEventArgs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorEventArgs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="InputEventArgs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Interactive.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\interactive-cpp\source\interactivity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LaunchEventArgs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveEventArgs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StateChangedEventArgs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="Interactive.h" />
-    <ClInclude Include="InputEventArgs.h" />
-    <ClInclude Include="LaunchEventArgs.h" />
-    <ClInclude Include="MoveEventArgs.h" />
-    <ClInclude Include="ErrorEventArgs.h" />
-    <ClInclude Include="StateChangedEventArgs.h" />
-    <ClInclude Include="CustomEventArgs.h" />
-    <ClInclude Include="Group.h" />
-    <ClInclude Include="Conversion.h" />
-    <ClInclude Include="Control.h" />
-    <ClInclude Include="ControlProperty.h" />
+    <ClInclude Include="Control.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlProperty.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Conversion.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomEventArgs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorEventArgs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEventArgs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Interactive.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LaunchEventArgs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveEventArgs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StateChangedEventArgs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

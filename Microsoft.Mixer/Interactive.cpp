@@ -1,7 +1,17 @@
 ﻿#include "pch.h"
 #include "Interactive.h"
+
+#include "Control.h"
+#include "ControlProperty.h"
 #include "Conversion.h"
-#include "..\..\..\interactive-cpp\source\interactivity.h"
+#include "CustomEventArgs.h"
+#include "ErrorEventArgs.h"
+#include "Group.h"
+#include "InputEventArgs.h"
+#include "LaunchEventArgs.h"
+#include "MoveEventArgs.h"
+#include "StateChangedEventArgs.h"
+#include <..\..\..\interactive-cpp\source\interactivity.h>
 
 using namespace Microsoft::Mixer::MixPlay;
 using namespace Platform;
@@ -38,12 +48,24 @@ Interactive::Interactive()
 
 Interactive::~Interactive()
 {
+	Disconnect();
+
+	delete _pImpl;
+}
+
+void Interactive::Disconnect()
+{
+	if (_pImpl->m_session == nullptr) return;
+
+	::interactive_close_session(_pImpl->m_session);
+
 	_pImpl->m_appIsRunning = false;
 
 	_pImpl->m_interactiveThread->join();
 
-	delete _pImpl;
-};
+	_pImpl->m_session = nullptr;
+}
+
 
 void Interactive::OnError(void* context, interactive_session session, int errorCode, const char* errorMessage, size_t errorMessageLength)
 {
@@ -58,6 +80,11 @@ void Interactive::OnError(void* context, interactive_session session, int errorC
 
 	pThis->Error(pThis, args);
 	OutputDebugStringA(debugLine.c_str());
+}
+
+bool Interactive::IsRunning::get()
+{
+	return _pImpl->m_appIsRunning;
 }
 
 int update(interactive_session session)
@@ -467,3 +494,4 @@ ControlProperty^ Interactive::GetControlProperty(Platform::String^ controlId, Pl
 
 	return property;
 }
+

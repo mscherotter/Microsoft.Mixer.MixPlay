@@ -66,7 +66,7 @@ namespace InteractiveUWPTester
 
         }
 
-        private async void Interactive_StateChanged(object sender, StateChangedEventArgs args)
+        private void Interactive_StateChanged(object sender, StateChangedEventArgs args)
         {
             if (args.NewState == InteractiveState.interactive_ready)
             {
@@ -87,7 +87,7 @@ namespace InteractiveUWPTester
                 {
                     var property = Interactive.GetControlProperty($"Image1", "backgroundImage");
 
-                    property.String = "https://tse3.mm.bing.net/th?id=OIP.6RGX1DlxvqSevMPOWizDSAHaJ6&pid=Api/file.jpg";
+                    property.String = "https://i.imgur.com/ryKQ6tq.jpg";// "https://tse3.mm.bing.net/th?id=OIP.6RGX1DlxvqSevMPOWizDSAHaJ6&pid=Api/file.jpg";
                     //Interactive.SetGroup("artists", args.ParticipantId);
                 }
 

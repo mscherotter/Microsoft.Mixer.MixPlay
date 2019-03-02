@@ -1,13 +1,4 @@
 ﻿#pragma once
-#include "InputEventArgs.h"
-#include "LaunchEventArgs.h"
-#include "MoveEventArgs.h"
-#include "ErrorEventArgs.h"
-#include "StateChangedEventArgs.h"
-#include "CustomEventArgs.h"
-#include "Group.h"
-#include "Control.h"
-#include "ControlProperty.h"
 
 struct InteractiveImpl;
 struct interactive_input;
@@ -20,6 +11,16 @@ namespace Microsoft
 	{
 		namespace MixPlay
 		{
+			ref class InputEventArgs;
+			ref class LaunchEventArgs;
+			ref class MoveEventArgs;
+			ref class ErrorEventArgs;
+			ref class StateChangedEventArgs;
+			ref class CustomEventArgs;
+			ref class Group;
+			ref class Control;
+			ref class ControlProperty;
+
 			public delegate void InputHandler(Platform::Object^ sender, InputEventArgs^ args);
 			public delegate void LaunchHandler(Platform::Object^ sender, LaunchEventArgs^ args);
 			public delegate void MoveHandler(Platform::Object^ sender, MoveEventArgs^ args);
@@ -35,8 +36,14 @@ namespace Microsoft
 				///<summary>Initializes a new instance of the Interactive class</summary>
 				Interactive();
 
-				///<summary>Destructor</summary>
+				///<summary>Close the connection to Mixer</summary>
 				virtual ~Interactive();
+
+				property bool IsRunning
+				{
+					bool get();
+				}
+				void Disconnect();
 
 				/// <summary>Startup the interactive SDK and Connect to the Mixer platform</summary>
 				/// <param name="clientId">the Mixer OAuth Client ID from https://mixer.com/lab/oauth</param>

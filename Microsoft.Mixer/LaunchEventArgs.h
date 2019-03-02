@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace Microsoft
 {
 	namespace Mixer

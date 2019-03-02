@@ -293,7 +293,14 @@
     <ClInclude Include="StateChangedEventArgs.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\interactive-cpp\source\interactivity.cpp" />
+    <ClCompile Include="..\..\interactive-cpp\source\interactivity.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="ControlProperty.cpp" />
     <ClCompile Include="Conversion.cpp" />
