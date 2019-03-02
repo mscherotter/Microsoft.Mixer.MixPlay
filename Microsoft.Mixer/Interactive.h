@@ -39,10 +39,13 @@ namespace Microsoft
 				///<summary>Close the connection to Mixer</summary>
 				virtual ~Interactive();
 
+				/// <summary>Gets a value indicating whether the connection to Mixer is open</summary>
 				property bool IsRunning
 				{
 					bool get();
 				}
+
+				/// <summary>Disconnects from Mixer.com</summary>
 				void Disconnect();
 
 				/// <summary>Startup the interactive SDK and Connect to the Mixer platform</summary>
