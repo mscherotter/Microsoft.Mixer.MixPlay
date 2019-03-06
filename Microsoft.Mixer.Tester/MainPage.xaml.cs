@@ -70,7 +70,7 @@ namespace InteractiveUWPTester
         {
             if (args.NewState == InteractiveState.interactive_ready)
             {
-                Interactive.CreateGroup("artists", "drawing");
+                Interactive.CreateGroup("drawing", "drawing");
 
                 //var groups = await Interactive.GetGroupsAsync();
 
@@ -89,6 +89,10 @@ namespace InteractiveUWPTester
 
                     property.String = "https://i.imgur.com/ryKQ6tq.jpg";// "https://tse3.mm.bing.net/th?id=OIP.6RGX1DlxvqSevMPOWizDSAHaJ6&pid=Api/file.jpg";
                     //Interactive.SetGroup("artists", args.ParticipantId);
+                }
+                if (args.ControlId == "Drawing")
+                {
+                    Interactive.SetGroup("drawing", args.ParticipantId);
                 }
 
                 ControlId.Text = $"{args.ControlId} \n {args.ParticipantId}";

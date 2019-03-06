@@ -52,6 +52,7 @@ namespace Microsoft
 				/// <param name="clientId">the Mixer OAuth Client ID from https://mixer.com/lab/oauth</param>
 				/// <param name="interactiveId">the Mixer MixPlay Version ID (found in the Code tab of the MixPlay editor)</param>
 				/// <param name="shareCode">the Mixer MixPlay Share Code (found in the Publish tab of the MixPlay editor)</param>
+				/// <returns>0 if the user authenticated with Mixer successfully, otherwise an error code from Mixer</returns>
 				Windows::Foundation::IAsyncOperation<int>^ StartupAsync(Platform::String^ clientId, Platform::String^ interactiveId, Platform::String^ shareCode);
 
 				/// <summary>Gets the user name for a participant Id</summary>
@@ -84,6 +85,8 @@ namespace Microsoft
 				/// <param name="sceneId">the scene id</param>
 				Windows::Foundation::Collections::IVector<Control^>^ GetControls(Platform::String^ sceneId);
 				
+				float GetMetaPropertyFloat(Platform::String^ controlId, Platform::String^ propertyName);
+
 				/// <summary>Launch handler for the app to launch an URI in the UI thread</summary>
 				/// <example>
 				/// <code>

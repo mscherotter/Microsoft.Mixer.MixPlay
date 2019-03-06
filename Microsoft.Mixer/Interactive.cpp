@@ -126,6 +126,30 @@ void Interactive::OnInput(void* context, interactive_session session, const inte
 
 			interactive_capture_transaction(session, input->transactionId);
 		}
+		else
+		{
+			auto args = ref new InputEventArgs();
+
+			auto control = ::ToPlatformString(input->control.id, input->control.idLength);
+
+			args->ControlId = control;
+
+			args->ParticipantId = ::ToPlatformString(input->participantId, input->participantIdLength);
+			args->IsDown = input->buttonData.action == interactive_button_action_down;
+			pThis->InputReceived(pThis, args);
+		}
+	}
+	else if (input_type_key == input->type || input_type_click == input->type)
+	{
+		auto args = ref new InputEventArgs();
+
+		auto control = ::ToPlatformString(input->control.id, input->control.idLength);
+			
+		args->ControlId = control;
+
+		args->ParticipantId = ::ToPlatformString(input->participantId, input->participantIdLength);
+		args->IsDown = input->buttonData.action == interactive_button_action_down;
+		pThis->InputReceived(pThis, args);
 	}
 	else if (input->type == input_type_move)
 	{
@@ -184,7 +208,7 @@ void Interactive::OnTransactionComplete(void* context, interactive_session sessi
 			args->ControlId = ref new Platform::String(std::wstring(control.begin(), control.end()).c_str());
 
 			args->ParticipantId = ::ToPlatformString(particpantId.c_str(), particpantId.length());
-
+			args->IsDown = true;
 			pThis->InputReceived(pThis, args);
 
 			pThis->_pImpl->m_controlsByTransaction.erase(transactionId);
@@ -236,7 +260,9 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 
 		Launch(this, ref new LaunchEventArgs(uri));
 
-		_pImpl->m_interactiveThread = std::make_unique<std::thread>(std::thread([&, winteractiveId, shortCodeHandle, shareCode]
+		task_completion_event<int> loginCompleted;
+		
+		_pImpl->m_interactiveThread = std::make_unique<std::thread>(std::thread([&, loginCompleted]
 		{
 			try
 			{
@@ -250,13 +276,11 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 				err = authorize(authorization, shortCodeHandle);
 				if (err)
 				{
-					throw err;
-					return;
+					throw(err);
 				}
 
 				// Connect to the user's interactive channel, using the interactive project specified by the version ID.
 				interactive_session session;
-
 
 				err = interactive_open_session(&session);
 				if (err) throw err;
@@ -285,6 +309,8 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 				err = interactive_connect(session, authorization.c_str(), versionId.c_str(), shareCode2.c_str(), true);
 				if (err) throw err;
 
+				loginCompleted.set(0);
+
 				while (_pImpl->m_appIsRunning) /// break out when app terminates
 				{
 					int err = update(session);
@@ -292,12 +318,14 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 					std::this_thread::sleep_for(std::chrono::milliseconds(16));
 				}
 			}
-			catch (int)
+			catch (int err)
 			{
+				loginCompleted.set(err);
+				_pImpl->m_interactiveThread.release();
 			}
 		}));
 
-		return 0;
+		return create_task(loginCompleted).get();
 	});
 }
 
@@ -495,3 +523,16 @@ ControlProperty^ Interactive::GetControlProperty(Platform::String^ controlId, Pl
 	return property;
 }
 
+float Interactive::GetMetaPropertyFloat(Platform::String^ controlId, Platform::String^ propertyName) 
+{
+	auto control = ::ToString(controlId);
+
+	auto property = ::ToString(propertyName);
+
+	float value = 0.0f;
+	auto result = ::interactive_control_get_meta_property_float(_pImpl->m_session, control.c_str(), property.c_str(), &value);
+
+	if (result != MIXER_OK) throw ref new COMException(result);
+
+	return value;
+}

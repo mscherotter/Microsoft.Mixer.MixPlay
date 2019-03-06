@@ -13,6 +13,7 @@ namespace Microsoft
 
 				property Platform::String^ ControlId;
 				property Platform::String^ ParticipantId;
+				property bool	IsDown;
 			};
 		}
 	}

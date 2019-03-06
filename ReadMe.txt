@@ -7,7 +7,7 @@ Microsoft Corp.
 This package lets you connect any UWP app (C#, C++, JS), (x86, x64, ARM, ARM64) to a Mixer.com MixPlay to allow live streaming viewers to interact with your app.
 
 C# app usage:
-1. Add a usign directive to your App class 
+1. Add a using directive to your App class 
     using Microsoft.Mixer.MixPlay;
 
 2. Create an instance of Interactive as a member of the App class
