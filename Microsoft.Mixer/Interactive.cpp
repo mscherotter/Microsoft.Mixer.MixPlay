@@ -230,8 +230,6 @@ void Interactive::OnTransactionComplete(void* context, interactive_session sessi
 
 Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::String^ clientId, Platform::String^ interactiveId, Platform::String^ shareCode)
 {
-	_pImpl->m_appIsRunning = true;
-
 	return create_async([this, clientId, interactiveId, shareCode]
 	{
 		if (_pImpl->m_session != nullptr) return (int) MIXER_OK;
@@ -287,6 +285,8 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 
 				this->_pImpl->m_session = session;
 
+				_pImpl->m_appIsRunning = true;
+
 				err = interactive_set_error_handler(session, OnError);
 				if (err) throw err;
 
@@ -310,6 +310,7 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 				if (err) throw err;
 
 				loginCompleted.set(0);
+
 
 				while (_pImpl->m_appIsRunning) /// break out when app terminates
 				{
