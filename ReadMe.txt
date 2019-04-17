@@ -4,7 +4,10 @@ Mixer Interactive Kit for UWP Apps
 Created by Michael S. Scherotter
 Microsoft Corp.
 
-This package lets you connect any UWP app (C#, C++, JS), (x86, x64, ARM, ARM64) to a Mixer.com MixPlay to allow live streaming viewers to interact with your app.
+This package lets you connect any UWP app (C#, C++, JS), (x86, x64, ARM, ARM64)
+to a Mixer.com MixPlay to allow live streaming viewers to interact with your app.
+This kit is based on the open source Mixer C++ library: 
+	https://github.com/mixer/interactive-cpp  
 
 C# app usage:
 1. Add a using directive to your App class 
