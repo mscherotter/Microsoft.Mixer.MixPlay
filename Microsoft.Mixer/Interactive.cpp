@@ -238,9 +238,9 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 
 		std::wstring winteractiveId(interactiveId->Data());
 
-		_pImpl->m_interactiveId = std::string(winteractiveId.begin(), winteractiveId.end());
+		_pImpl->m_interactiveId = ::ToString(winteractiveId);
 
-		_pImpl->m_clientId = std::string(wsstr.begin(), wsstr.end());
+		_pImpl->m_clientId = ::ToString(wsstr);
 
 		int err = 0;
 		char shortCode[7];
@@ -304,7 +304,7 @@ Windows::Foundation::IAsyncOperation<int>^ Interactive::StartupAsync(Platform::S
 
 				err = interactive_set_state_changed_handler(session, OnStateChanged);
 
-				std::string versionId = std::string(winteractiveId2.begin(), winteractiveId2.end());
+				std::string versionId = ::ToString(winteractiveId2);
 
 				err = interactive_connect(session, authorization.c_str(), versionId.c_str(), shareCode2.c_str(), true);
 				if (err) throw err;

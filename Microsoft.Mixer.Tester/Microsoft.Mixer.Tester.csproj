@@ -159,12 +159,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.8</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Mixer\Microsoft.Mixer.vcxproj">
-      <Project>{b17381ce-a942-4c2a-9fce-70f0e9c8dc61}</Project>
-      <Name>Microsoft.Mixer.MixPlay</Name>
-    </ProjectReference>
+    <PackageReference Include="Synergist.Mixer.MixPlay">
+      <Version>0.17.0-beta</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

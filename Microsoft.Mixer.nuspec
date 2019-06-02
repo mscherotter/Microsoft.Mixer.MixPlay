@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Microsoft.Mixer.MixPlay</id>
-    <version>0.16</version>
-    <title>Microsoft.Mixer</title>
+    <id>Synergist.Mixer.MixPlay</id>
+    <version>0.17-beta</version>
+    <title>Synergist.Mixer</title>
     <authors>Michael S. Scherotter</authors>
     <owners>Microsoft Corp.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
