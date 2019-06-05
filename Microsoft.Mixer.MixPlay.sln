@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Microsoft.Mixer.MixPlay", "Microsoft.Mixer\Microsoft.Mixer.vcxproj", "{B17381CE-A942-4C2A-9FCE-70F0E9C8DC61}"
 EndProject
@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{0DD35F42
 		BuildNuGetPackage.bat = BuildNuGetPackage.bat
 		Microsoft.Mixer.nuspec = Microsoft.Mixer.nuspec
 		Microsoft.Mixer.targets = Microsoft.Mixer.targets
+		Mixer-Logo.png = Mixer-Logo.png
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
