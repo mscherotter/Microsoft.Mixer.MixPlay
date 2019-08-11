@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Synergist.Mixer.MixPlay</id>
-    <version>0.17-beta</version>
+    <version>0.18-beta</version>
     <title>Synergist.Mixer</title>
     <authors>Michael S. Scherotter</authors>
     <owners>Microsoft Corp.</owners>
@@ -11,6 +11,7 @@
     <releaseNotes>Initial release for x86, x64, ARM, and ARM64</releaseNotes>
     <copyright>Copyright 2019 Microsoft Corp.</copyright>
     <tags>Microsoft MixPlay Mixer UWP</tags>
+    <minClientVersion>2.5</minClientVersion>
   </metadata>
   <files>
     <file src="x64\Debug\Microsoft.Mixer\Microsoft.Mixer.MixPlay.winmd" target="lib\uap10.0"/>
